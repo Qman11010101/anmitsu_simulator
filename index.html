@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta property="og:title" content="CHUNITHM 餡蜜・擦りチェッカー">
+    <meta property="og:description" content="CHUNITHM？">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <title>CHUNITHM 餡蜜・擦りチェッカー</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>CHUNITHM 餡蜜・擦りチェッカー</h1>
+        <section class="desc">
+            指定されたBPM・ノーツの密度で餡蜜・擦りを通すことができるかを判定します。<br>
+            <a href="https://kattrxvjxxde.github.io/an32_checker/?bpm=218&noteType=24" target="_blank">SDVX餡蜜チェッカー</a>を参考にさせていただきました。
+        </section>
+    </header>
+    <main>
+        <section id="inputfield">
+            <div class="input">
+                BPM<br>
+                <input type="number" id="bpm" value="256">
+            </div>
+            <div class="input">
+                密度(分)<br>
+                <input type="number" id="note" value="24">
+            </div>
+        </section>
+        <section id="outputfield">
+            <p>
+                ノーツ間隔: <span id="betweenms"></span>ms<br>
+                J-CRITICAL重複範囲: <span id="jcms"></span>ms<br>
+                JUSTICE重複範囲: <span id="jms"></span>ms
+            </p>
+
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: beige;
+    width: 700px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 699px) {
+    body {
+        width: 90%;
+        padding: 20px 0;
+    }
+}
+
+h1,
+h2 {
+    margin: 10px auto;
+    width: fit-content;
+}
+
+hr {
+    width: 90%;
+}
+
+footer {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 699px) {
+    hr {
+        width: 100%;
+    }
+
+    footer {
+        width: 100%;
+    }
+}
+
+section {
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 90%;
+}
+
+#inputfield {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input {
+    width: 100%;
+    margin: 10px;
+}
+
+.input > input {
+    font-size: 1.3em;
+    width: 100px;
+}
