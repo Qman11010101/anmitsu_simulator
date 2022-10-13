@@ -44,7 +44,7 @@ footer {
 }
 
 section {
-    margin: 0 auto;
+    margin: 10px auto;
     width: fit-content;
     max-width: 90%;
 }
@@ -62,4 +62,8 @@ section {
 .input > input {
     font-size: 1.3em;
     width: 100px;
+}
+
+#outputfield span {
+    font-weight: bolder;
 }

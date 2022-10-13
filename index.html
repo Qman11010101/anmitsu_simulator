@@ -19,7 +19,8 @@
         <h1>CHUNITHM 餡蜜・擦りチェッカー</h1>
         <section class="desc">
             指定されたBPM・ノーツの密度で餡蜜・擦りを通すことができるかを判定します。<br>
-            <a href="https://kattrxvjxxde.github.io/an32_checker/?bpm=218&noteType=24" target="_blank">SDVX餡蜜チェッカー</a>を参考にさせていただきました。
+            <a href="https://kattrxvjxxde.github.io/an32_checker/?bpm=218&noteType=24"
+                target="_blank">SDVX餡蜜チェッカー</a>を参考にさせていただきました。
         </section>
     </header>
     <main>
@@ -33,13 +34,14 @@
                 <input type="number" id="note" value="24">
             </div>
         </section>
+        <section class="dispblock">
+            ・重複範囲がある場合、縦連を擦ることができます。<br>
+            ・重複範囲が30-60ms程度あれば、餡蜜が有用です。
+        </section>
         <section id="outputfield">
-            <p>
-                ノーツ間隔: <span id="betweenms"></span>ms<br>
-                J-CRITICAL重複範囲: <span id="jcms"></span>ms<br>
-                JUSTICE重複範囲: <span id="jms"></span>ms
-            </p>
-
+            ノーツ間隔: <span id="betweenms"></span>ms<br>
+            J-CRITICAL重複範囲: <span id="jcms"></span>ms<br>
+            JUSTICE重複範囲: <span id="jms"></span>ms
         </section>
     </main>
     <script src="main.js"></script>
