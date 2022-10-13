@@ -1,6 +1,6 @@
 // ms
 const JUSTICE_CRITICAL = 33.3333333333333333;
-const JUSTICE          = 66.6666666666666667;
+const JUSTICE = 66.6666666666666667;
 
 function calcTimeBetweenNotes(bpm, note) {
     const notesPerSec = bpm * (note / 4) / 60;
@@ -8,19 +8,25 @@ function calcTimeBetweenNotes(bpm, note) {
     return notesBetween_ms;
 }
 
+function calcTimeRange(mode, bpm, note, btw) {
+    const range = mode === "jc" ? JUSTICE_CRITICAL : JUSTICE;
+    const firstNoteRange = [-range, range];
+    const secondNoteRange = [-range + btw, range + btw];
+    return Math.max(0, firstNoteRange[1] - secondNoteRange[0]);
+}
+
 function writeResult() {
-    document.getElementById("betweenms").innerText = calcTimeBetweenNotes(document.getElementById("bpm").value, document.getElementById("note").value);
-    document.getElementById("jcms").innerText = calcTimeRange("jc", )
+    const b = document.getElementById("bpm").value;
+    const n = document.getElementById("note").value;
+    const btw = calcTimeBetweenNotes(b, n);
+    document.getElementById("betweenms").innerText = btw.toFixed(3);
+    document.getElementById("jcms").innerText = calcTimeRange("jc", b, n, btw).toFixed(3);
+    document.getElementById("jms").innerText = calcTimeRange("j", b, n, btw).toFixed(3);
     document.getElementById("outputfield").style.display = "block";
 }
 
-document.getElementById("bpm").addEventListener("change", () => {
-    writeResult();
-});
-
-document.getElementById("note").addEventListener("change", () => {
-    writeResult();
-});
+document.getElementById("bpm").addEventListener("change", writeResult);
+document.getElementById("note").addEventListener("change", writeResult);
 
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("outputfield").style.display = "none";

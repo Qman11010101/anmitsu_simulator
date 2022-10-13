@@ -18,6 +18,12 @@ h2 {
     width: fit-content;
 }
 
+@media screen and (max-width: 565px) {
+    h1 {
+        font-size: 1.25em;
+    }
+}
+
 hr {
     width: 90%;
 }
