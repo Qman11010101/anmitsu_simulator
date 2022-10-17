@@ -93,6 +93,7 @@ section {
 }
 
 #turn span {
+    font-family: 'Noto Sans JP', sans-serif;
     vertical-align: middle;
     display: table-cell;
     -webkit-user-select: none;
