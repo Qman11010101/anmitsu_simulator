@@ -8,9 +8,9 @@ var turnClicked = false;
 
 function clickTurn() {
     if (turnClicked) {
-        turn.style.transform = "rotateY(0deg)";
+        turn.style.transform = "rotate(0deg)";
     } else {
-        turn.style.transform = "rotateY(180deg)";
+        turn.style.transform = "rotate(180deg)";
     }
     turnClicked = !turnClicked;
 }
