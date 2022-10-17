@@ -33,10 +33,10 @@ function writeResultConv(type) {
     }
 }
 
-bpm.addEventListener("change", writeResultConv);
-note.addEventListener("change", writeResultConv);
-c_bpm.addEventListener("change", () => writeResultConv("b2n"));
-c_note.addEventListener("change", () => writeResultConv("n2b"));
+bpm.addEventListener("input", writeResultConv);
+note.addEventListener("input", writeResultConv);
+c_bpm.addEventListener("input", () => writeResultConv("b2n"));
+c_note.addEventListener("input", () => writeResultConv("n2b"));
 
 turn.addEventListener("click", clickTurn);
 

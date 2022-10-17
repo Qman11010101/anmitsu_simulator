@@ -25,8 +25,8 @@ function writeResult() {
     document.getElementById("outputfield").style.display = "block";
 }
 
-document.getElementById("bpm").addEventListener("change", writeResult);
-document.getElementById("note").addEventListener("change", writeResult);
+document.getElementById("bpm").addEventListener("input", writeResult);
+document.getElementById("note").addEventListener("input", writeResult);
 
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("outputfield").style.display = "none";
