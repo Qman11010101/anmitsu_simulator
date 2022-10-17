@@ -43,11 +43,49 @@
             J-CRITICAL重複範囲: <span id="jcms"></span>ms<br>
             JUSTICE重複範囲: <span id="jms"></span>ms
         </section>
-        <section class="dispblock">
-            <a href="converter.html">BPM・リズム変換機</a>
+        <h2>BPM・リズム変換機</h2>
+        <section class="desc">
+            BPM・密度を他のBPM・密度に変換します。<br>
+            変換先の矢印をクリック・タップすると計算対象を切り替えることができます。
+        </section>
+        <h3>変換元</h3>
+        <section class="inputfield">
+            <div class="input">
+                BPM<br>
+                <input type="number" id="b_bpm" value="250">
+            </div>
+            <div class="input">
+                密度(分)<br>
+                <input type="number" id="b_note" value="12">
+            </div>
+        </section>
+        <h3>変換先</h3>
+        <section class="inputfield">
+            <div class="input">
+                BPM<br>
+                <input type="number" id="c_bpm" value="120">
+            </div>
+            <div id="turn">
+                <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                    style="width: 24px; height: 24px; opacity: 1;" xml:space="preserve">
+                    <g>
+                        <path class="st0"
+                            d="M268.234,24.08c-22.883-21.777-59.085-20.883-80.861,2c-21.787,22.904-20.894,59.116,2.01,80.883l96.511,91.84
+                        H57.202C25.606,198.803,0,224.399,0,256.006c0,31.596,25.606,57.192,57.202,57.192h228.691l-96.511,91.85
+                        c-22.904,21.756-23.797,57.979-2.01,80.862c21.776,22.883,57.978,23.798,80.861,2.011L512,256.006L268.234,24.08z">
+                        </path>
+                    </g>
+                </svg>
+            </div>
+            <div class="input">
+                密度(分)<br>
+                <input type="number" id="c_note">
+            </div>
         </section>
     </main>
     <script src="main.js"></script>
+    <script src="conv.js"></script>
 </body>
 
 </html>

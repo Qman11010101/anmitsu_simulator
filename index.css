@@ -78,26 +78,21 @@ section {
     width: 50px;
     height: 50px;
     text-align: center;
+    color: #333;
     background-color: #ddd;
     border-radius: 50%;
-    display: table;
-    font-size: 1.5em;
     cursor: pointer;
     transition-duration: .2s;
 }
 
 #turn:hover {
     background-color: #333;
-    color: white;
     transition-duration: .2s;
+    color: #ddd;
 }
 
-#turn span {
-    font-family: 'Noto Sans JP', sans-serif;
-    vertical-align: middle;
-    display: table-cell;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+#turn svg {
+    display: block;
+    margin: 13px auto;
+    fill: currentColor;
 }
