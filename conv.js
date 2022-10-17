@@ -15,7 +15,7 @@ function clickTurn() {
     turnClicked = !turnClicked;
 }
 
-function writeResult(type) {
+function writeResultConv(type) {
     if (type === "n2b") {
         c_bpm.value = Math.round(bpm.value * (note.value / c_note.value) * 1000) / 1000;
         turnClicked = false;
@@ -33,11 +33,11 @@ function writeResult(type) {
     }
 }
 
-bpm.addEventListener("change", writeResult);
-note.addEventListener("change", writeResult);
-c_bpm.addEventListener("change", () => writeResult("b2n"));
-c_note.addEventListener("change", () => writeResult("n2b"));
+bpm.addEventListener("change", writeResultConv);
+note.addEventListener("change", writeResultConv);
+c_bpm.addEventListener("change", () => writeResultConv("b2n"));
+c_note.addEventListener("change", () => writeResultConv("n2b"));
 
 turn.addEventListener("click", clickTurn);
 
-writeResult();
+writeResultConv();
