@@ -17,18 +17,18 @@ function clickTurn() {
 
 function writeResult(type) {
     if (type === "n2b") {
-        c_bpm.value = bpm.value * (note.value / c_note.value);
+        c_bpm.value = Math.round(bpm.value * (note.value / c_note.value) * 1000) / 1000;
         turnClicked = false;
         clickTurn();
     } else if (type === "b2n") {
-        c_note.value = note.value * (bpm.value / c_bpm.value);
+        c_note.value = Math.round(note.value * (bpm.value / c_bpm.value) * 1000) / 1000;
         turnClicked = true;
         clickTurn();
     } else {
         if (turnClicked) {
-            c_bpm.value = bpm.value * (note.value / c_note.value);
+            c_bpm.value = Math.round(bpm.value * (note.value / c_note.value) * 1000) / 1000;
         } else {
-            c_note.value = note.value * (bpm.value / c_bpm.value);
+            c_note.value = Math.round(note.value * (bpm.value / c_bpm.value) * 1000) / 1000;
         }
     }
 }
