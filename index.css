@@ -13,8 +13,11 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     margin: 10px auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -45,25 +48,55 @@ footer {
 
 section {
     margin: 10px auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     max-width: 90%;
 }
 
-#inputfield {
+.inputfield {
     display: flex;
     justify-content: space-evenly;
 }
 
 .input {
-    width: 100%;
     margin: 10px;
+    width: 100px;
 }
 
-.input > input {
+.input>input {
     font-size: 1.3em;
-    width: 100px;
+    width: 92px;
 }
 
 #outputfield span {
     font-weight: bolder;
+}
+
+#turn {
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: table;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+#turn:hover {
+    background-color: #333;
+    color: white;
+    transition-duration: .2s;
+}
+
+#turn span {
+    vertical-align: middle;
+    display: table-cell;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
