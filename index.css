@@ -73,6 +73,24 @@ section {
     font-weight: bolder;
 }
 
+/* ビジュアライザ */
+
+#visualizer {
+    background-color: #222;
+    width: 210px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.note {
+    display: block;
+}
+
+
+/* 変換機 */
+
 #turn {
     margin: 10px;
     width: 50px;
