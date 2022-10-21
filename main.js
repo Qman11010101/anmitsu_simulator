@@ -24,7 +24,6 @@ function writeResult() {
     document.getElementById("jms").innerText = calcTimeRange("j", b, n, btw).toFixed(3);
     document.getElementById("outputfield").style.display = "block";
     document.getElementById("move_note").style.marginTop = String(btw * 2) + "px";
-    // console.log(String(btw) + "px;");
 }
 
 document.getElementById("bpm").addEventListener("input", writeResult);
