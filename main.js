@@ -8,7 +8,7 @@ function calcTimeBetweenNotes(bpm, note) {
     return notesBetween_ms;
 }
 
-function calcTimeRange(mode, bpm, note, btw) {
+function calcTimeRange(mode, btw) {
     const range = mode === "jc" ? JUSTICE_CRITICAL : JUSTICE;
     const firstNoteRange = [-range, range];
     const secondNoteRange = [-range + btw, range + btw];
