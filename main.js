@@ -20,8 +20,8 @@ function writeResult() {
     const n = document.getElementById("note").value;
     const btw = calcTimeBetweenNotes(b, n);
     document.getElementById("betweenms").innerText = btw.toFixed(3);
-    document.getElementById("jcms").innerText = calcTimeRange("jc", b, n, btw).toFixed(3);
-    document.getElementById("jms").innerText = calcTimeRange("j", b, n, btw).toFixed(3);
+    document.getElementById("jcms").innerText = calcTimeRange("jc", btw).toFixed(3);
+    document.getElementById("jms").innerText = calcTimeRange("j", btw).toFixed(3);
     document.getElementById("outputfield").style.display = "block";
     document.getElementById("move_note").style.marginTop = String(Math.min(btw * 2, 300)) + "px";
 }
