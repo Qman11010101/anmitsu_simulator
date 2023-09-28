@@ -33,8 +33,14 @@ function writeResultConv(type) {
     }
 }
 
+function writeNotesSpanUnder() {
+    document.getElementById("notes-span").innerText = calcTimeBetweenNotes(b_bpm.value, b_note.value).toFixed(3);
+}
+
 b_bpm.addEventListener("input", writeResultConv);
 b_note.addEventListener("input", writeResultConv);
+b_bpm.addEventListener("input", writeNotesSpanUnder);
+b_note.addEventListener("input", writeNotesSpanUnder);
 c_bpm.addEventListener("input", () => writeResultConv("b2n"));
 c_note.addEventListener("input", () => writeResultConv("n2b"));
 
