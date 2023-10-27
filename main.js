@@ -26,8 +26,20 @@ function writeResult() {
     document.getElementById("move_note").style.marginTop = String(Math.min(btw * 2, 300)) + "px";
 }
 
-document.getElementById("bpm").addEventListener("input", writeResult);
-document.getElementById("note").addEventListener("input", writeResult);
+const bpm = document.getElementById("bpm");
+const note = document.getElementById("note");
+
+const b_bpm = document.getElementById("b_bpm");
+const b_note = document.getElementById("b_note");
+
+bpm.addEventListener("input", writeResult);
+note.addEventListener("input", writeResult);
+bpm.addEventListener("input", () => {
+    b_bpm.value = bpm.value;
+});
+note.addEventListener("input", () => {
+    b_note.value = note.value;
+});
 
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("outputfield").style.display = "none";

@@ -1,5 +1,3 @@
-const b_bpm = document.getElementById("b_bpm");
-const b_note = document.getElementById("b_note");
 const c_bpm = document.getElementById("c_bpm");
 const c_note = document.getElementById("c_note");
 
