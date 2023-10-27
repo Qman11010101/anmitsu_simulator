@@ -1,6 +1,3 @@
-const c_bpm = document.getElementById("c_bpm");
-const c_note = document.getElementById("c_note");
-
 const turn = document.getElementById("turn");
 var turnClicked = false;
 

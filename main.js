@@ -2,6 +2,15 @@
 const JUSTICE_CRITICAL = 33.3333333333333333;
 const JUSTICE = 66.6666666666666667;
 
+const bpm = document.getElementById("bpm");
+const note = document.getElementById("note");
+
+const b_bpm = document.getElementById("b_bpm");
+const b_note = document.getElementById("b_note");
+
+const c_bpm = document.getElementById("c_bpm");
+const c_note = document.getElementById("c_note");
+
 function calcTimeBetweenNotes(bpm, note) {
     const notesPerSec = bpm * (note / 4) / 60;
     const notesBetween_ms = 1 / notesPerSec * 1000;
@@ -25,12 +34,6 @@ function writeResult() {
     document.getElementById("outputfield").style.display = "block";
     document.getElementById("move_note").style.marginTop = String(Math.min(btw * 2, 300)) + "px";
 }
-
-const bpm = document.getElementById("bpm");
-const note = document.getElementById("note");
-
-const b_bpm = document.getElementById("b_bpm");
-const b_note = document.getElementById("b_note");
 
 bpm.addEventListener("input", writeResult);
 note.addEventListener("input", writeResult);
