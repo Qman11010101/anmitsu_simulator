@@ -25,8 +25,8 @@ function calcTimeRange(mode, btw) {
 }
 
 function writeResult() {
-    const b = document.getElementById("bpm").value;
-    const n = document.getElementById("note").value;
+    const b = bpm.value;
+    const n = note.value;
     const btw = calcTimeBetweenNotes(b, n);
     document.getElementById("betweenms").innerText = btw.toFixed(3);
     document.getElementById("jcms").innerText = calcTimeRange("jc", btw).toFixed(3);
@@ -49,8 +49,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const pre_queryDict = window.location.search.substring(1).split("&");
     pre_queryDict.forEach(e => {
         let kv = e.split("=");
-        if (kv[0] === "bpm" && !isNaN(kv[1])) document.getElementById("bpm").value = kv[1];
-        if (kv[0] === "note" && !isNaN(kv[1])) document.getElementById("note").value = kv[1];
+        if (kv[0] === "bpm" && !isNaN(kv[1])) bpm.value = kv[1];
+        if (kv[0] === "note" && !isNaN(kv[1])) note.value = kv[1];
     });
     writeResult();
 });
