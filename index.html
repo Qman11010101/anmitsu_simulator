@@ -36,6 +36,37 @@
             </div>
         </section>
         <section class="dispblock">
+            <h3>メトロノーム再生</h3>
+            <button onclick="soundBeat()">play</button>
+            <button id="play-metronome-upper" onclick="metronome('u')">再生する</button><button id="stop-metronome-upper">停止する</button>
+            <div class="metronome" id="u-metronome">
+                <div class="metronome-beat first-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat sub-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat sub-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat sub-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+                <div class="metronome-beat"></div>
+            </div>
+        </section>
+        <section class="dispblock">
             ・重複範囲がある場合、縦連を擦ることができます。<br>
             ・重複範囲が40-50ms程度あれば、餡蜜が有用といえます。
         </section>
@@ -92,6 +123,7 @@
     </main>
     <script src="main.js?v=2"></script>
     <script src="conv.js?v=1"></script>
+    <script src="metronome.js?v=1"></script>
 </body>
 
 </html>
