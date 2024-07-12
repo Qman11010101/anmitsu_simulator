@@ -50,6 +50,9 @@ function writeResult() {
     ams.style.color = amsTime > 0 ? "red" : "black";
     document.getElementById("outputfield").style.display = "block";
     document.getElementById("move_note").style.marginTop = String(Math.min(btw * 2, 410)) + "px";
+    const border = document.getElementById("border");
+    const oyaSize = document.getElementById("visualizer-wrapper").offsetHeight;
+    border.style.top = String(oyaSize / 2 + 6) + "px";
 }
 
 bpm.addEventListener("input", writeResult);
