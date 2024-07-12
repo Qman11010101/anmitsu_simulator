@@ -73,7 +73,55 @@ section {
     font-weight: bolder;
 }
 
+/* メトロノーム */
+
+.metronome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    /* margin: 10px;
+    width: 200px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 10px; */
+}
+
+.metronome-beat {
+    width: 15px;
+    height: 15px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.metronome-beat:not(:first-child) {
+    margin-left: 10px;
+}
+
+.first-beat {
+    width: 30px;
+    height: 30px;
+}
+
+.sub-beat {
+    width: 20px;
+    height: 20px;
+}
+
 /* ビジュアライザ */
+
+#visualizer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px auto;
+
+    section {
+        margin: 2px;
+    }
+}
 
 #visualizer {
     background-color: #222;
