@@ -1,6 +1,8 @@
 // ms
+const JUSTICE_CRITICAL_PLUS = 16.6666666666666667;
 const JUSTICE_CRITICAL = 33.3333333333333333;
 const JUSTICE = 66.6666666666666667;
+const ATTACK = 100;
 
 const bpm = document.getElementById("bpm");
 const note = document.getElementById("note");
@@ -18,7 +20,7 @@ function calcTimeBetweenNotes(bpm, note) {
 }
 
 function calcTimeRange(mode, btw) {
-    const range = mode === "jc" ? JUSTICE_CRITICAL : JUSTICE;
+    const range = mode === "a" ? ATTACK : mode === "j" ? JUSTICE : mode === "jc" ? JUSTICE_CRITICAL : JUSTICE_CRITICAL_PLUS;
     const firstNoteRange = [-range, range];
     const secondNoteRange = [-range + btw, range + btw];
     return Math.max(0, firstNoteRange[1] - secondNoteRange[0]);
@@ -29,10 +31,25 @@ function writeResult() {
     const n = note.value;
     const btw = calcTimeBetweenNotes(b, n);
     document.getElementById("betweenms").innerText = btw.toFixed(3);
-    document.getElementById("jcms").innerText = calcTimeRange("jc", btw).toFixed(3);
-    document.getElementById("jms").innerText = calcTimeRange("j", btw).toFixed(3);
+
+    const jcpms = document.getElementById("jcpms");
+    const jcms = document.getElementById("jcms");
+    const jms = document.getElementById("jms");
+    const ams = document.getElementById("ams");
+    const jspmsTime = calcTimeRange("jcp", btw);
+    const jcmsTime = calcTimeRange("jc", btw);
+    const jmsTime = calcTimeRange("j", btw);
+    const amsTime = calcTimeRange("a", btw);
+    jcpms.innerText = jspmsTime.toFixed(3);
+    jcms.innerText = jcmsTime.toFixed(3);
+    jms.innerText = jmsTime.toFixed(3);
+    ams.innerText = amsTime.toFixed(3);
+    jcpms.style.color = jspmsTime > 0 ? "red" : "black";
+    jcms.style.color = jcmsTime > 0 ? "red" : "black";
+    jms.style.color = jmsTime > 0 ? "red" : "black";
+    ams.style.color = amsTime > 0 ? "red" : "black";
     document.getElementById("outputfield").style.display = "block";
-    document.getElementById("move_note").style.marginTop = String(Math.min(btw * 2, 300)) + "px";
+    document.getElementById("move_note").style.marginTop = String(Math.min(btw * 2, 410)) + "px";
 }
 
 bpm.addEventListener("input", writeResult);

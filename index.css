@@ -111,6 +111,18 @@ section {
 
 /* ビジュアライザ */
 
+#visualizer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px auto;
+
+    section {
+        margin: 2px;
+    }
+}
+
 #visualizer {
     background-color: #222;
     width: 210px;
