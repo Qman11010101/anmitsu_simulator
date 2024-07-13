@@ -120,7 +120,7 @@ section {
     position: relative;
 
     section {
-        margin: 2px;
+        margin: 1px;
     }
 }
 
@@ -142,7 +142,11 @@ section {
     width: 228px;
     margin: -10px;
     position: absolute;
-    top: 240px;
+    top: calc(100% / 2);
+}
+
+.centermark {
+    display: block;
 }
 
 
