@@ -94,5 +94,6 @@ window.addEventListener("DOMContentLoaded", () => {
         if (kv[0] === "bpm" && !isNaN(kv[1])) bpm.value = kv[1];
         if (kv[0] === "note" && !isNaN(kv[1])) note.value = kv[1];
     });
+    toggleThirdNote(); // 初期状態を設定（非表示）
     writeResult();
 });
