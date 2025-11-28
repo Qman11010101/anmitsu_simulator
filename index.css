@@ -69,6 +69,19 @@ section {
     width: 92px;
 }
 
+.checkbox-section {
+    text-align: center;
+}
+
+.checkbox-section label {
+    cursor: pointer;
+}
+
+.checkbox-section input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
 #outputfield span {
     font-weight: bolder;
 }
@@ -126,7 +139,9 @@ section {
 
 #visualizer {
     background-color: #222;
-    width: 210px;
+    width: 320px;
+    height: 402px;
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -139,7 +154,7 @@ section {
 
 .border {
     border: 1px solid #2f00ff;
-    width: 228px;
+    width: 338px;
     margin: -10px;
     position: absolute;
     top: calc(100% / 2);

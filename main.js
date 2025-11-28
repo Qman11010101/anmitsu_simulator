@@ -49,7 +49,9 @@ function writeResult() {
     jms.style.color = jmsTime > 0 ? "red" : "black";
     ams.style.color = amsTime > 0 ? "red" : "black";
     document.getElementById("outputfield").style.display = "block";
-    document.getElementById("move_note").style.marginTop = String(Math.min(btw * 2, 410)) + "px";
+    document.getElementById("first-note").style.marginTop = String(-Math.min(btw, 410)) + "px";
+    document.getElementById("second-note").style.marginTop = String(Math.min(btw, 410)) + "px";
+    document.getElementById("third-note").style.marginTop = String(Math.min(btw * 3, 410)) + "px";
     const border = document.getElementById("border");
     const oyaSize = document.getElementById("visualizer-wrapper").offsetHeight;
     border.style.top = String(oyaSize / 2 + 9) + "px";
@@ -63,6 +65,26 @@ bpm.addEventListener("input", () => {
 note.addEventListener("input", () => {
     b_note.value = note.value;
 });
+
+// third-noteの表示・非表示制御
+const showThirdNoteCheckbox = document.getElementById("show-third-note");
+const thirdNote = document.getElementById("third-note");
+const visualizer = document.getElementById("visualizer");
+const border = document.getElementById("border");
+
+function toggleThirdNote() {
+    if (showThirdNoteCheckbox.checked) {
+        thirdNote.style.display = "block";
+        visualizer.style.width = "320px";
+        border.style.width = "338px";
+    } else {
+        thirdNote.style.display = "none";
+        visualizer.style.width = "210px";
+        border.style.width = "228px";
+    }
+}
+
+showThirdNoteCheckbox.addEventListener("change", toggleThirdNote);
 
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("outputfield").style.display = "none";

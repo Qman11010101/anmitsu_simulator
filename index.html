@@ -7,11 +7,12 @@
     <meta property="og:title" content="CHUNITHM 餡蜜・擦りチェッカー">
     <meta property="og:description" content="CHUNITHMの餡蜜・擦りが通るかを検証します。">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css?v=4" type="text/css">
+    <link rel="stylesheet" href="index.css?v=5" type="text/css">
     <title>CHUNITHM 餡蜜・擦りチェッカー</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+Mono&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -19,7 +20,8 @@
         <h1>CHUNITHM 餡蜜・擦りチェッカー</h1>
         <section class="desc">
             指定されたBPM・ノーツの密度で餡蜜・擦りを通すことができるかを判定します。<br>
-            <a href="https://kattrxvjxxde.github.io/an32_checker/?bpm=218&noteType=24" target="_blank">SDVX餡蜜チェッカー</a>を参考にさせていただきました。
+            <a href="https://kattrxvjxxde.github.io/an32_checker/?bpm=218&noteType=24"
+                target="_blank">SDVX餡蜜チェッカー</a>を参考にさせていただきました。
         </section>
     </header>
     <main>
@@ -33,37 +35,12 @@
                 <input type="number" id="note" value="24">
             </div>
         </section>
-        <!-- <section class="dispblock">
-            <h3>メトロノーム再生</h3>
-            <button onclick="soundBeat()">play</button>
-            <button id="play-metronome-upper" onclick="metronome('u')">再生する</button><button id="stop-metronome-upper">停止する</button>
-            <div class="metronome" id="u-metronome">
-                <div class="metronome-beat first-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat sub-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat sub-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat sub-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-                <div class="metronome-beat"></div>
-            </div>
-        </section> -->
+        <section class="checkbox-section">
+            <label>
+                <input type="checkbox" id="show-third-note" checked>
+                3つ目のノーツを表示する
+            </label>
+        </section>
         <section class="dispblock">
             ・重複範囲がある場合、縦連を擦ることができます。<br>
             ・重複範囲が40-50ms程度あれば、餡蜜が有用といえます。
@@ -77,8 +54,9 @@
         </section>
         <div id="visualizer-wrapper">
             <section id="visualizer">
-                <img src="notes.png?v=3" class="note" id="move_note">
-                <img src="notes.png?v=3" class="note">
+                <img src="notes.png?v=3" class="note" id="third-note">
+                <img src="notes.png?v=3" class="note" id="second-note">
+                <img src="notes.png?v=3" class="note" id="first-note">
                 <div class="border" id="border"></div>
             </section>
             <section id="visualizer-centermark">
@@ -109,9 +87,12 @@
                 <input type="number" id="c_bpm" value="128">
             </div>
             <div id="turn">
-                <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 24px; height: 24px; opacity: 1;" xml:space="preserve">
+                <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                    style="width: 24px; height: 24px; opacity: 1;" xml:space="preserve">
                     <g>
-                        <path class="st0" d="M268.234,24.08c-22.883-21.777-59.085-20.883-80.861,2c-21.787,22.904-20.894,59.116,2.01,80.883l96.511,91.84
+                        <path class="st0"
+                            d="M268.234,24.08c-22.883-21.777-59.085-20.883-80.861,2c-21.787,22.904-20.894,59.116,2.01,80.883l96.511,91.84
                         H57.202C25.606,198.803,0,224.399,0,256.006c0,31.596,25.606,57.192,57.202,57.192h228.691l-96.511,91.85
                         c-22.904,21.756-23.797,57.979-2.01,80.862c21.776,22.883,57.978,23.798,80.861,2.011L512,256.006L268.234,24.08z">
                         </path>
@@ -124,8 +105,8 @@
             </div>
         </section>
     </main>
-    <script src="main.js?v=2"></script>
-    <script src="conv.js?v=1"></script>
+    <script src="main.js?v=3"></script>
+    <script src="conv.js?v=2"></script>
     <!-- <script src="metronome.js?v=1"></script> -->
 </body>
 
