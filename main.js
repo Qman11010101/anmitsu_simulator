@@ -68,8 +68,10 @@ note.addEventListener("input", () => {
 
 // third-noteの表示・非表示制御
 const showThirdNoteCheckbox = document.getElementById("show-third-note");
+const showLegacyNoteCheckbox = document.getElementById("show-legacy-note");
 const thirdNote = document.getElementById("third-note");
 const visualizer = document.getElementById("visualizer");
+const visualizerNotes = visualizer.querySelectorAll("img.note");
 const border = document.getElementById("border");
 
 function toggleThirdNote() {
@@ -84,7 +86,15 @@ function toggleThirdNote() {
     }
 }
 
+function toggleLegacyNote() {
+    const noteSrc = showLegacyNoteCheckbox.checked ? "notes_legacy.png" : "notes.png?v=4";
+    visualizerNotes.forEach(note => {
+        note.src = noteSrc;
+    });
+}
+
 showThirdNoteCheckbox.addEventListener("change", toggleThirdNote);
+showLegacyNoteCheckbox.addEventListener("change", toggleLegacyNote);
 
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("outputfield").style.display = "none";
@@ -95,5 +105,6 @@ window.addEventListener("DOMContentLoaded", () => {
         if (kv[0] === "note" && !isNaN(kv[1])) note.value = kv[1];
     });
     toggleThirdNote(); // 初期状態を設定（非表示）
+    toggleLegacyNote();
     writeResult();
 });

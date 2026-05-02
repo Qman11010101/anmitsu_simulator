@@ -1,113 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="google-site-verification"
+            content="ssTSog07eLgYixpP6NXaevedqh1Ca6mUqt7ViRColTs"
+        />
+        <meta property="og:title" content="CHUNITHM 餡蜜・擦りチェッカー" />
+        <meta
+            property="og:description"
+            content="CHUNITHMの餡蜜・擦りが通るかを検証します。"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css?v=5" type="text/css" />
+        <title>CHUNITHM 餡蜜・擦りチェッカー</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+Mono&display=swap"
+            rel="stylesheet"
+        />
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="google-site-verification" content="ssTSog07eLgYixpP6NXaevedqh1Ca6mUqt7ViRColTs" />
-    <meta property="og:title" content="CHUNITHM 餡蜜・擦りチェッカー">
-    <meta property="og:description" content="CHUNITHMの餡蜜・擦りが通るかを検証します。">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css?v=5" type="text/css">
-    <title>CHUNITHM 餡蜜・擦りチェッカー</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+Mono&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <header>
-        <h1>CHUNITHM 餡蜜・擦りチェッカー</h1>
-        <section class="desc">
-            指定されたBPM・ノーツの密度で餡蜜・擦りを通すことができるかを判定します。<br>
-            <a href="https://kattrxvjxxde.github.io/an32_checker/?bpm=218&noteType=24"
-                target="_blank">SDVX餡蜜チェッカー</a>を参考にさせていただきました。
-        </section>
-    </header>
-    <main>
-        <section class="inputfield">
-            <div class="input">
-                BPM<br>
-                <input type="number" id="bpm" value="256">
-            </div>
-            <div class="input">
-                密度(分)<br>
-                <input type="number" id="note" value="24">
-            </div>
-        </section>
-        <section class="checkbox-section">
-            <label>
-                <input type="checkbox" id="show-third-note">
-                3つ目のノーツを表示する
-            </label>
-        </section>
-        <section class="dispblock">
-            ・重複範囲がある場合、縦連を擦ることができます。<br>
-            ・重複範囲が40-50ms程度あれば、餡蜜が有用といえます。
-        </section>
-        <section id="outputfield">
-            ノーツ間隔: <span id="betweenms"></span>ms<br>
-            J-CRITICAL+重複範囲: <span id="jcpms"></span>ms<br>
-            J-CRITICAL重複範囲: <span id="jcms"></span>ms<br>
-            JUSTICE重複範囲: <span id="jms"></span>ms<br>
-            ATTACK重複範囲: <span id="ams"></span>ms<br>
-        </section>
-        <div id="visualizer-wrapper">
-            <section id="visualizer">
-                <img src="notes.png?v=3" class="note" id="third-note">
-                <img src="notes.png?v=3" class="note" id="second-note">
-                <img src="notes.png?v=3" class="note" id="first-note">
-                <div class="border" id="border"></div>
+    <body>
+        <header>
+            <h1>CHUNITHM 餡蜜・擦りチェッカー</h1>
+            <section class="desc">
+                指定されたBPM・ノーツの密度で餡蜜・擦りを通すことができるかを判定します。<br />
+                <a
+                    href="https://kattrxvjxxde.github.io/an32_checker/?bpm=218&noteType=24"
+                    target="_blank"
+                    >SDVX餡蜜チェッカー</a
+                >を参考にさせていただきました。
             </section>
-            <section id="visualizer-centermark">
-                <img src="marker.png?v=2" class="centermark">
+        </header>
+        <main>
+            <section class="inputfield">
+                <div class="input">
+                    BPM<br />
+                    <input type="number" id="bpm" value="256" />
+                </div>
+                <div class="input">
+                    密度(分)<br />
+                    <input type="number" id="note" value="24" />
+                </div>
             </section>
-        </div>
-        <h2>BPM・リズム変換機</h2>
-        <section class="desc">
-            BPM・密度を他のBPM・密度に変換します。<br>
-            変換先の矢印をクリック・タップすると計算対象を切り替えることができます。
-        </section>
-        <h3>変換元</h3>
-        <section class="inputfield">
-            <div class="input">
-                BPM<br>
-                <input type="number" id="b_bpm" value="256">
+            <section class="checkbox-section">
+                <label>
+                    <input type="checkbox" id="show-third-note" />
+                    3つ目のノーツを表示する
+                </label>
+                <br />
+                <label>
+                    <input type="checkbox" id="show-legacy-note" />
+                    レガシーノーツで表示する
+                </label>
+            </section>
+            <section class="dispblock">
+                ・重複範囲がある場合、縦連を擦ることができます。<br />
+                ・重複範囲が40-50ms程度あれば、餡蜜が有用といえます。
+            </section>
+            <section id="outputfield">
+                ノーツ間隔: <span id="betweenms"></span>ms<br />
+                J-CRITICAL+重複範囲: <span id="jcpms"></span>ms<br />
+                J-CRITICAL重複範囲: <span id="jcms"></span>ms<br />
+                JUSTICE重複範囲: <span id="jms"></span>ms<br />
+                ATTACK重複範囲: <span id="ams"></span>ms<br />
+            </section>
+            <div id="visualizer-wrapper">
+                <section id="visualizer">
+                    <img src="notes.png?v=4" class="note" id="third-note" />
+                    <img src="notes.png?v=4" class="note" id="second-note" />
+                    <img src="notes.png?v=4" class="note" id="first-note" />
+                    <div class="border" id="border"></div>
+                </section>
+                <section id="visualizer-centermark">
+                    <img src="marker.png?v=2" class="centermark" />
+                </section>
             </div>
-            <div class="input">
-                密度(分)<br>
-                <input type="number" id="b_note" value="24">
-            </div>
-        </section>
-        <p style="width: fit-content; margin: 0 auto;">ノーツ間隔: <b><span id="notes-span">80.000</span></b>ms</p>
-        <h3>変換先</h3>
-        <section class="inputfield">
-            <div class="input">
-                BPM<br>
-                <input type="number" id="c_bpm" value="128">
-            </div>
-            <div id="turn">
-                <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                    style="width: 24px; height: 24px; opacity: 1;" xml:space="preserve">
-                    <g>
-                        <path class="st0"
-                            d="M268.234,24.08c-22.883-21.777-59.085-20.883-80.861,2c-21.787,22.904-20.894,59.116,2.01,80.883l96.511,91.84
+            <h2>BPM・リズム変換機</h2>
+            <section class="desc">
+                BPM・密度を他のBPM・密度に変換します。<br />
+                変換先の矢印をクリック・タップすると計算対象を切り替えることができます。
+            </section>
+            <h3>変換元</h3>
+            <section class="inputfield">
+                <div class="input">
+                    BPM<br />
+                    <input type="number" id="b_bpm" value="256" />
+                </div>
+                <div class="input">
+                    密度(分)<br />
+                    <input type="number" id="b_note" value="24" />
+                </div>
+            </section>
+            <p style="width: fit-content; margin: 0 auto">
+                ノーツ間隔: <b><span id="notes-span">80.000</span></b
+                >ms
+            </p>
+            <h3>変換先</h3>
+            <section class="inputfield">
+                <div class="input">
+                    BPM<br />
+                    <input type="number" id="c_bpm" value="128" />
+                </div>
+                <div id="turn">
+                    <svg
+                        version="1.1"
+                        id="_x32_"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 512 512"
+                        style="width: 24px; height: 24px; opacity: 1"
+                        xml:space="preserve"
+                    >
+                        <g>
+                            <path
+                                class="st0"
+                                d="M268.234,24.08c-22.883-21.777-59.085-20.883-80.861,2c-21.787,22.904-20.894,59.116,2.01,80.883l96.511,91.84
                         H57.202C25.606,198.803,0,224.399,0,256.006c0,31.596,25.606,57.192,57.202,57.192h228.691l-96.511,91.85
-                        c-22.904,21.756-23.797,57.979-2.01,80.862c21.776,22.883,57.978,23.798,80.861,2.011L512,256.006L268.234,24.08z">
-                        </path>
-                    </g>
-                </svg>
-            </div>
-            <div class="input">
-                密度(分)<br>
-                <input type="number" id="c_note">
-            </div>
-        </section>
-    </main>
-    <script src="main.js?v=3"></script>
-    <script src="conv.js?v=2"></script>
-    <!-- <script src="metronome.js?v=1"></script> -->
-</body>
-
+                        c-22.904,21.756-23.797,57.979-2.01,80.862c21.776,22.883,57.978,23.798,80.861,2.011L512,256.006L268.234,24.08z"
+                            ></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="input">
+                    密度(分)<br />
+                    <input type="number" id="c_note" />
+                </div>
+            </section>
+        </main>
+        <script src="main.js?v=4"></script>
+        <script src="conv.js?v=2"></script>
+        <!-- <script src="metronome.js?v=1"></script> -->
+    </body>
 </html>
